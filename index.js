@@ -136,4 +136,7 @@ function registerParam(name, handler) {
     if ((handler instanceof RegExp) || handler.length < 3) {
         this.params[name] = handler;
     }
+    return function (req, res, next, value) {
+        next();
+    };
 }
